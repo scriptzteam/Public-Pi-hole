@@ -38,8 +38,6 @@ sleep 2
 # Pi-hole install
 curl -sSL https://install.pi-hole.net | bash
 
-/etc/pihole# nano setupVars.conf
-
 # Add domain blocklist
 echo "https://dbl.oisd.nl/" > /etc/pihole/adlists.list
 #pihole -g
