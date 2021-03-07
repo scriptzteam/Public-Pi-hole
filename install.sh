@@ -36,6 +36,8 @@ echo "
 sleep 2
 # Pi-hole install
 curl -sSL https://install.pi-hole.net | bash
+wget https://dbl.oisd.nl/ -O /etc/pihole/adlists.list
+pihole -g
 
 # Move admin dir to dir specified in argument - hidden_admin_dir
 # Remove pihole dir
