@@ -50,7 +50,8 @@ echo "
 | Now you need to edit file /etc/pihole/setupVars.conf and after that run pihole -g |
 |                                                                                   |
 | DNSMASQ_LISTENING=all                                                             | 
-| PIHOLE_DNS_1=127.0.0.1#5335                                                       |
+| PIHOLE_DNS_1=127.0.0.1#5335                                                       | 
+| PIHOLE_DNS_2=127.0.0.1#5335                                                       | 
 |                                                                                   |
 |***********************************************************************************|
 "
