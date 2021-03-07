@@ -2,7 +2,9 @@
 
 #Check
 if [[ $# -eq 0 ]] ; then
-    echo "Run as - install.sh hidden_admin_dir, where hidden_admin_dir is random string for admin panel access, this is not password, it is used just to hide admin location!"
+    echo "Run as - sh install.sh hidden_admin_dir\n
+    Where hidden_admin_dir is your random string for admin panel access!n\
+    This is not password, it is used just to hide admin panel location!"
     exit 1
 fi
 
