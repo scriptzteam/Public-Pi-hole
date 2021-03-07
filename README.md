@@ -16,7 +16,7 @@ status: SERVFAIL
 dig sigok.verteiltesysteme.net @127.0.0.1 -p 5335
 status: NOERROR
 ```
-The first command should give a status report of SERVFAIL and no IP address.
+The first dig command should give a status report of SERVFAIL and no IP address.
 The second should give NOERROR plus an IP address.
 
 
