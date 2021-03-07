@@ -1,9 +1,11 @@
+#!/bin/sh
+
 #Version: v1.0.0
 
 #Check
-if [ $# -eq 0 ]
-  then
+if [[ $# -eq 0 ]] ; then
     echo "Run as - install.sh hidden_admin_dir"
+    exit 1
 fi
 
 #Install
