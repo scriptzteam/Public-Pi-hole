@@ -49,7 +49,7 @@ rm -rf /var/www/html/pihole/
 
 echo "
 |***********************************************************************************|
-| Now you need to edit file /etc/pihole/setupVars.conf and after that run pihole -g |
+| Now you need to edit file /etc/pihole/setupVars.conf                              |
 |                                                                                   |
 | DNSMASQ_LISTENING=all                                                             | 
 | PIHOLE_DNS_1=127.0.0.1#5335                                                       | 
@@ -64,3 +64,4 @@ mv /etc/resolv.conf /etc/resolv.conf-backup
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
 chattr -f +i /etc/resolv.conf
 service unbound restart
+pihole restartdns
