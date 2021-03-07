@@ -30,6 +30,10 @@ sleep 2
 # Pi-hole install
 curl -sSL https://install.pi-hole.net | bash
 
+# Add domain blocklist
+echo "https://dbl.oisd.nl/" > /etc/pihole/adlists.list
+pihole -g
+
 # Use 127.0.0.1
 systemctl disable unbound-resolvconf.service
 systemctl stop unbound-resolvconf.service
