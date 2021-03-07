@@ -1,7 +1,7 @@
 #Version: v1.0.1
 
 #Check
-if [[ $# -eq 0 ]] ; then
+if [ -z "$1" ]; then
     echo "Run as - sh install.sh hidden_admin_dir"
     echo "Where hidden_admin_dir is your random string for admin panel access!"
     echo "This is not password, it is used just to hide admin panel location!"
