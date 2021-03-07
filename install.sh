@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #Version: v1.0.0
 
 #Check
