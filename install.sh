@@ -1,4 +1,4 @@
-#Version: v1.0.0
+#Version: v1.0.1
 
 #Check
 if [[ $# -eq 0 ]] ; then
@@ -38,9 +38,11 @@ sleep 2
 # Pi-hole install
 curl -sSL https://install.pi-hole.net | bash
 
+/etc/pihole# nano setupVars.conf
+
 # Add domain blocklist
 echo "https://dbl.oisd.nl/" > /etc/pihole/adlists.list
-pihole -g
+#pihole -g
 
 # Move admin dir to dir specified in argument - hidden_admin_dir
 # Remove pihole dir
@@ -49,3 +51,19 @@ rm -rf /var/www/html/pihole/
 
 # Unound stats:
 # unbound-control stats_noreset
+
+echo "
+|***********************************************************************************|
+| Now you need to edit file /etc/pihole/setupVars.conf and after that run pihole -g |
+|                                                                                   |
+| DNSMASQ_LISTENING=all                                                             | 
+| PIHOLE_DNS_1=127.0.0.1#5335                                                       |
+|                                                                                   |
+|***********************************************************************************|
+"
+sleep 2
+
+mv /etc/resolv.conf /etc/resolv.conf-backup
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
+chattr -f +i /etc/resolv.conf
+service unbound restart
