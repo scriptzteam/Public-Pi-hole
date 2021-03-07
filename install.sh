@@ -30,11 +30,11 @@ service unbound restart
 # The second should give NOERROR plus an IP address.
 
 echo "
-|***********************************************************************************|
-| Now you are going to install Pi-hole, as DNS use custom DNS (unbound) - 127.0.0.1 |
-|***********************************************************************************|
+|****************************************************************************************|
+| Now you are going to install Pi-hole, as DNS use custom DNS (unbound) - 127.0.0.1#5335 |
+|****************************************************************************************|
 "
-sleep 2
+sleep 5
 # Pi-hole install
 curl -sSL https://install.pi-hole.net | bash
 
