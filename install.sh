@@ -17,9 +17,6 @@ systemctl disable unbound-resolvconf.service
 systemctl stop unbound-resolvconf.service
 systemctl restart dhcpcd
 service unbound restart
-mv /etc/resolv.conf /etc/resolv.conf-backup
-echo "nameserver 127.0.0.1" > /etc/resolv.conf
-chattr -f +i /etc/resolv.conf
 
 # Test validation
 # You can test DNSSEC validation using
@@ -38,6 +35,11 @@ sleep 2
 curl -sSL https://install.pi-hole.net | bash
 wget https://dbl.oisd.nl/ -O /etc/pihole/adlists.list
 pihole -g
+
+# Use 127.0.0.1
+mv /etc/resolv.conf /etc/resolv.conf-backup
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
+chattr -f +i /etc/resolv.conf
 
 # Move admin dir to dir specified in argument - hidden_admin_dir
 # Remove pihole dir
