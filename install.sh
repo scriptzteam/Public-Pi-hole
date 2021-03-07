@@ -13,6 +13,14 @@ apt install unbound
 wget https://www.internic.net/domain/named.root -qO- | tee /var/lib/unbound/root.hints
 mv /etc/unbound/unbound.conf.d/pi-hole.conf /etc/unbound/unbound.conf.d/pi-hole.conf-backup
 wget https://raw.githubusercontent.com/scriptzteam/Public-Pi-hole/main/files/pi-hole.conf -O /etc/unbound/unbound.conf.d/pi-hole.conf
+systemctl disable unbound-resolvconf.service
+systemctl stop unbound-resolvconf.service
+systemctl restart dhcpcd
+service unbound restart
+mv /etc/resolv.conf /etc/resolv.conf-backup
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
+chattr -f +i /etc/resolv.conf
+service unbound restart
 
 # Test validation
 # You can test DNSSEC validation using
@@ -33,16 +41,6 @@ curl -sSL https://install.pi-hole.net | bash
 # Add domain blocklist
 echo "https://dbl.oisd.nl/" > /etc/pihole/adlists.list
 pihole -g
-
-# Use 127.0.0.1
-systemctl disable unbound-resolvconf.service
-systemctl stop unbound-resolvconf.service
-systemctl restart dhcpcd
-service unbound restart
-mv /etc/resolv.conf /etc/resolv.conf-backup
-echo "nameserver 127.0.0.1" > /etc/resolv.conf
-chattr -f +i /etc/resolv.conf
-service unbound restart
 
 # Move admin dir to dir specified in argument - hidden_admin_dir
 # Remove pihole dir
