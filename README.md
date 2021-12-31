@@ -25,3 +25,8 @@ The second should give NOERROR plus an IP address.
 dig ANY sigok.verteiltesysteme.net @127.0.0.1 -p 5335
 status: NOTIMP
 ```
+
+**View Unbound stats**
+```
+sudo unbound-control stats_noreset | grep total
+```
